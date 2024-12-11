@@ -2,41 +2,40 @@
 
 # Medical AI Project Setup Guide
 
-This guide will help you set up Python and create a virtual environment for the the workshop that you will be attending.
+This guide will help you set up Miniconda with Python 3.12 and create a virtual environment for the workshop that you will be attending.
 
-## Downloading Python (CPython)
-
-In this workshop, we recommend using Python 3.11
+## Installing Miniconda
 
 ### For Windows Users:
 
-1. Visit [Python's official website](https://www.python.org/downloads/)
-2. Click on the "Download Python" button (latest stable version recommended)
+1. Visit [Miniconda's official website](https://docs.conda.io/projects/miniconda/en/latest/)
+2. Download the latest Windows installer (Miniconda3 Windows 64-bit)
 3. Run the downloaded installer
-4. Important: Check the box that says "Add Python to PATH" during installation
-5. Click "Install Now"
-6. Verify installation by opening Command Prompt and typing:
+4. During installation:
+   - Select "Install for all users" or "Just Me" (recommended)
+   - Check "Add Miniconda3 to my PATH environment variable"
+5. Verify installation by opening Command Prompt and typing:
    ```
-   python --version
+   conda --version
    ```
 
 ### For Unix Users (macOS/Linux):
 
-1. Visit [Python's official website](https://www.python.org/downloads/)
-2. Download the latest stable version for your OS
-   - For macOS: Download the macOS installer
-   - For Linux: Many distributions come with Python pre-installed. If needed:
+1. Visit [Miniconda's official website](https://docs.conda.io/projects/miniconda/en/latest/)
+2. Download the latest installer for your OS:
+   - For macOS: Download the macOS installer (pkg or bash script)
+   - For Linux: Download the Linux installer (bash script)
+3. Install Miniconda:
+   - For macOS pkg installer: Double click and follow the installation wizard
+   - For bash script (macOS/Linux):
      ```bash
-     # Ubuntu/Debian
-     sudo apt update
-     sudo apt install python3
-
-     # Fedora
-     sudo dnf install python3
+     bash ~/Downloads/Miniconda3-latest-*-x86_64.sh
      ```
-3. Verify installation:
+   - Follow the prompts and say "yes" to initialize Miniconda
+4. Close and reopen your terminal
+5. Verify installation:
    ```bash
-   python3 --version
+   conda --version
    ```
 
 ## Create a new directory for the project
@@ -73,70 +72,61 @@ In this workshop, we recommend using Python 3.11
    cd Medical_AI
    ```
 
-## Setting Up Virtual Environment (.venv)
+## Setting Up Conda Environment
 
-### For Windows Users:
+### For Both Windows and Unix Users:
 
-1. Open Command Prompt
-2. Navigate to your project directory:
-   ```cmd
-   cd path\to\Medical_AI
-   ```
-3. Create virtual environment:
-   ```cmd
-   python -m venv .venv
-   ```
-4. Activate virtual environment:
-   ```cmd
-   .venv\Scripts\activate
-   ```
-
-### For Unix Users (macOS/Linux):
-
-1. Open Terminal
+1. Open Command Prompt (Windows) or Terminal (macOS/Linux)
 2. Navigate to your project directory:
    ```bash
-   cd path/to/Medical_AI
+   cd path/to/Medical_AI   # Use path\to\Medical_AI on Windows
    ```
-3. Create virtual environment:
+3. Create a new conda environment with Python 3.12:
    ```bash
-   python3 -m venv .venv
+   conda create -n medical_ai python=3.12
    ```
-4. Activate virtual environment:
+4. Activate the conda environment:
    ```bash
-   source .venv/bin/activate
+   conda activate medical_ai
    ```
 
-## Verifying Virtual Environment
+## Verifying Conda Environment
 
-After activation, you should see (.venv) at the beginning of your command prompt. You can verify the Python installation path:
+After activation, you should see (medical_ai) at the beginning of your command prompt. You can verify the Python installation:
 
 ```bash
 # For both Windows and Unix
-python -c "import sys; print(sys.executable)"
+python --version  # Should show Python 3.12.x
+conda list  # Shows all installed packages
 ```
 
-## Install Dependencies in Virtual Environment
+## Install Dependencies in Conda Environment
 
-1. Download the `requirements.txt` file in the folder of the  workshop that you are attending: 
+1. Download the `requirements.txt` file in the folder of the workshop that you are attending: 
     - [predictive analysis](predictive_analysis/requirements.txt)
     - [computer vision](computer_vision/requirements.txt)
     - [LLM](NLP_LLM/requirements.txt)
-    
+
 2. Install the dependencies:
    ```bash
-   python -m pip install -r requirements.txt
+   conda install --file requirements.txt
+   ```
 
-## Deactivating Virtual Environment
+   If some packages are not available through conda, you can use pip as a fallback:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Deactivating Conda Environment
 
 When you're done working on the project:
 
 ```bash
-deactivate
+conda deactivate
 ```
 
 ## Notes
 
-- Always activate the virtual environment before working on the project
-- The .venv directory is already included in .gitignore
-- Use pip to install project dependencies after activating the virtual environment
+- Always activate the conda environment before working on the project
+- The environment name 'medical_ai' can be changed to your preference during creation
+- Use conda to install dependencies when possible, falling back to pip when needed
