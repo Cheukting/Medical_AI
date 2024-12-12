@@ -142,4 +142,3 @@ conda deactivate
 
 - Always activate the conda environment before working on the project
 - The environment name 'medical_ai' can be changed to your preference during creation
-- Use conda to install dependencies when possible, falling back to pip when needed
