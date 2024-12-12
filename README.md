@@ -111,9 +111,9 @@ conda list  # Shows all installed packages
 ## Download the data files and the Jupyter notebook
 
 1. Download the file(s) in the data folder of the workshop that you are attending: 
-    - [predictive analysis](predictive_analysis/data/)
-    - [computer vision](computer_vision/data/)
-    - [LLM](NLP_LLM/data/) 
+    - [predictive analysis](predictive_analysis/data)
+    - [computer vision](computer_vision/data)
+    - [LLM](NLP_LLM/data) 
 
 2. Download the `.ipynb` file in the folder of the workshop that you are attending: 
     - [predictive analysis](prective_analysis/heart_disease_prediction.ipynb)
