@@ -109,11 +109,6 @@ conda list  # Shows all installed packages
 
 2. Install the dependencies:
    ```bash
-   conda install --file requirements.txt
-   ```
-
-   If some packages are not available through conda, you can use pip as a fallback:
-   ```bash
    pip install -r requirements.txt
    ```
 
