@@ -1,5 +1,3 @@
-
-
 # Medical AI Project Setup Guide
 
 This guide will help you set up Miniconda with Python 3.12 and create a virtual environment for the workshop that you will be attending.
@@ -74,8 +72,6 @@ This guide will help you set up Miniconda with Python 3.12 and create a virtual 
 
 ## Setting Up Conda Environment
 
-### For Both Windows and Unix Users:
-
 1. Open Command Prompt (Windows) or Terminal (macOS/Linux)
 2. Navigate to your project directory:
    ```bash
@@ -111,6 +107,28 @@ conda list  # Shows all installed packages
    ```bash
    pip install -r requirements.txt
    ```
+
+## Download the data files and the Jupyter notebook
+
+1. Download the file(s) in the data folder of the workshop that you are attending: 
+    - [predictive analysis](predictive_analysis/data/)
+    - [computer vision](computer_vision/data/)
+    - [LLM](NLP_LLM/data/) 
+
+2. Download the `.ipynb` file in the folder of the workshop that you are attending: 
+    - [predictive analysis](prective_analysis/heart_disease_prediction.ipynb)
+    - [computer vision](computer_vision/brain_tumor_detection.ipynb)
+    - [LLM](NLP_LLM/medical_text_analysis.ipynb) 
+
+## Run Jupyter notebook on browser
+
+1. Go back to Command Prompt (Windows) or Terminal (macOS/Linux)
+2. Make sure you are at the workshop directory and have the virtual environment activated, you should see (medical_ai) at the beginning of your command prompt.
+3. Run Jupyter notebook:
+   ```bash
+   jupyter notebook
+   ```
+4. It should open a new tab in your current browser.
 
 ## Deactivating Conda Environment
 
